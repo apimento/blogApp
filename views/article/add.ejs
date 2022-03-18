@@ -1,0 +1,38 @@
+<h1>Add Article</h1> 
+
+<form method="post" action="/article/add" > 
+
+    <div>
+       <label class="form-label" > Title</label> 
+       <input name="title" type="text" class="form-control">
+    </div> 
+
+    <div>
+        <label class="form-label" > Content</label> 
+        <textarea name="content" class="form-control"></textarea>
+    </div>
+
+    <div>
+        <label class="form-label" > Is Published</label> 
+        <input name="isPublished" type="text" class="form-control"> 
+    </div>
+
+    <div>
+        <label class="form-label" > Total Words</label> 
+        <input name="totalWords" type="number" class="form-control">
+    </div> 
+
+    <div>
+        <label class="form-label"> Author Name</label>
+        <!-- <input type="text" name="author">  --> 
+        <select name="author[]" multiple="multiple">
+            <%authors.forEach(function(author) { %>
+
+              <option value="<%=author.id%>"> <%= author.name %></option>
+            <% }) %>    
+        </select>
+    </div> 
+
+    <button type="submit">Create Article</button> 
+
+</form>    
